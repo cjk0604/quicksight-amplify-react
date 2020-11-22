@@ -24,7 +24,7 @@ app.use(function(req, res, next) {
 
 app.get('/getQuickSightDashboardEmbedURL', function(req, res) {
 
-    var roleArn = 'arn:aws:iam::943952228413:role/amplify-amplifyquicksightdas-dev-190818-authRole'; // your cognito authenticated role arn here
+    var roleArn = '<cognito-authenticated-role-arn>'; // your cognito authenticated role arn here
   
     AWS.config.region = 'us-east-1';
   
@@ -32,10 +32,10 @@ app.get('/getQuickSightDashboardEmbedURL', function(req, res) {
     var cognitoIdentity = new AWS.CognitoIdentity();
     var stsClient = new AWS.STS();
     var params = {
-        IdentityPoolId: 'us-east-1:3f53a915-880f-416d-a255-54cc46a1853a', // your identity pool id here
+        IdentityPoolId: '<identity-pool-id>', // your identity pool id here
         Logins: {
             // your logins here
-            'cognito-idp.us-east-1.amazonaws.com/us-east-1_e6Kktai2W': req.query.jwtToken
+            'cognito-idp.us-east-1.amazonaws.com/<user-pool-id>': req.query.jwtToken
         }
     };
     
@@ -44,7 +44,7 @@ app.get('/getQuickSightDashboardEmbedURL', function(req, res) {
         else {
             data.Logins = {
                 // your logins here
-                'cognito-idp.us-east-1.amazonaws.com/us-east-1_e6Kktai2W': req.query.jwtToken
+                'cognito-idp.us-east-1.amazonaws.com/<user-pool-id>': req.query.jwtToken
             };
 
             cognitoIdentity.getOpenIdToken(data, function(err, openIdToken) {
@@ -79,7 +79,7 @@ app.get('/getQuickSightDashboardEmbedURL', function(req, res) {
                             });
                             var registerUserParams = {
                                 // required
-                                AwsAccountId: "943952228413",
+                                AwsAccountId: "<account-id>",
                                 // can be passed in from api-gateway call
                                 Email: req.query.email,
                                 // can be passed in from api-gateway call
@@ -99,9 +99,9 @@ app.get('/getQuickSightDashboardEmbedURL', function(req, res) {
                                     if (err.code && err.code === 'ResourceExistsException') {
                                       var getDashboardParams = {
                                             // required
-                                            AwsAccountId: "943952228413",
+                                            AwsAccountId: "<account-id>",
                                             // required
-                                            DashboardId: "456a6499-cf49-43fd-8f39-497776ceee36",
+                                            DashboardId: "<dashboard-id>",
                                             // required
                                             IdentityType: 'IAM',
                                             ResetDisabled: false, // can be passed in from api-gateway call
@@ -132,9 +132,9 @@ app.get('/getQuickSightDashboardEmbedURL', function(req, res) {
                                     setTimeout(function() {
                                     var getDashboardParams = {
                                           // required
-                                          AwsAccountId: "943952228413",
+                                          AwsAccountId: "<account-id>",
                                           // required
-                                          DashboardId: "456a6499-cf49-43fd-8f39-497776ceee36",
+                                          DashboardId: "<dashboard-id>",
                                           // required
                                           IdentityType: 'IAM',
                                           ResetDisabled: false, // can be passed in from api-gateway call
