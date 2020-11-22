@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-amplifyquicksightdas-dev-190818-authRole",
+      "UnauthRoleArn": "arn:aws:iam::943952228413:role/amplify-amplifyquicksightdas-dev-190818-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::943952228413:role/amplify-amplifyquicksightdas-dev-190818-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-amplifyquicksightdas-dev-190818-deployment",
+      "UnauthRoleName": "amplify-amplifyquicksightdas-dev-190818-unauthRole",
+      "StackName": "amplify-amplifyquicksightdas-dev-190818",
+      "StackId": "arn:aws:cloudformation:us-east-1:943952228413:stack/amplify-amplifyquicksightdas-dev-190818/f048a870-1e07-11eb-b593-0a7396047ff3",
+      "AmplifyAppId": "d26uifkupw6c5m"
+    },
+    "categories": {
+      "auth": {
+        "amplifyquicksightdasb5bba591": {}
+      }
+    }
+  }
+}
